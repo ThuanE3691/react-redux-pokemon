@@ -1,16 +1,19 @@
-import { useDispatch, useSelector } from "react-redux";
-import { AppDispatch } from "../store";
+import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import { fetchPokemons } from "../features/pokemons/action";
-import { getPokemons, getLoadingStatus } from "../features/pokemons/selector";
+import {
+	fetchPokemons,
+	getLoadingStatus,
+	getPokemons,
+} from "../features/pokemons";
 import { getPageInfo } from "../features/pokemonsPagination/selector";
+import { useAppDispatch } from "../client";
 
 function ListPokemon() {
 	const pokemons = useSelector(getPokemons);
-	const isLoading = useSelector(getLoadingStatus);
 	const pageInfo = useSelector(getPageInfo);
+	const isLoading = useSelector(getLoadingStatus);
 
-	const dispatch: AppDispatch = useDispatch();
+	const dispatch = useAppDispatch();
 
 	useEffect(() => {
 		dispatch(
@@ -19,7 +22,7 @@ function ListPokemon() {
 				itemPerPage: pageInfo.itemPerPage,
 			})
 		);
-	}, [pageInfo.page]);
+	}, [dispatch, pageInfo.itemPerPage, pageInfo.page]);
 
 	if (isLoading) return <div>Loading Data...</div>;
 

@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
-import pokemonsReducer from "./features/pokemons/reducer";
-import paginationReducer from "./features/pokemonsPagination/reducer";
+import pokemonsReducer from "../features/pokemons/reducer";
+import paginationReducer from "../features/pokemonsPagination/reducer";
 
 const rootReducer = combineReducers({
 	pokemons: pokemonsReducer,

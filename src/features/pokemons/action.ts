@@ -6,13 +6,13 @@ import {
 	FETCH_POKEMONS_FAILURE,
 	PokemonsAPIResponse,
 } from "./types";
-import callApi from "../../client";
-import { baseUrlPokemonsAPI } from "../../constants";
-import { defaultPageQuery } from "../pokemonsPagination/factory";
+import { callApi } from "../../client/api";
+import { baseUrlPokemonsAPI } from "../../client/constants";
 import {
+	defaultPageQuery,
 	PaginationActionType,
 	SET_TOTAL_PAGE,
-} from "../pokemonsPagination/types";
+} from "../pokemonsPagination";
 
 export const fetchPokemons = (query = defaultPageQuery) => {
 	return async (

@@ -1,4 +1,4 @@
-import { baseUrlPokemonsAPI } from "../../constants";
+import { baseUrlPokemonsAPI } from "../../client/constants";
 import { initialPokemonsState } from "./factory";
 import {
 	FETCH_POKEMONS_REQUEST,

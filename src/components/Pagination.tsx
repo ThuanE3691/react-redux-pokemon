@@ -1,17 +1,18 @@
-import { useSelector, useDispatch } from "react-redux";
-import { getPageInfo } from "../features/pokemonsPagination/selector";
+import { useSelector } from "react-redux";
 import {
+	getPageInfo,
 	triggerChangePage,
 	triggerNextPage,
 	triggerPrevPage,
-} from "../features/pokemonsPagination/action";
-import { AppDispatch } from "../store";
-import { getLoadingStatus } from "../features/pokemons/selector";
+} from "../features/pokemonsPagination";
+import { useAppDispatch } from "../client";
+import { getLoadingStatus } from "../features/pokemons";
 
 function Pagination() {
 	const pageInfo = useSelector(getPageInfo);
 	const isLoading = useSelector(getLoadingStatus);
-	const dispatch: AppDispatch = useDispatch();
+
+	const dispatch = useAppDispatch();
 
 	const onClickChangePage = (e: React.MouseEvent<HTMLButtonElement>) => {
 		const target = e.target as HTMLButtonElement;
